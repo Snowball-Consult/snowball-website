@@ -4,14 +4,18 @@ Source for www.snowball-consult.com. Static single-page site, no build step: edi
 
 ## Status
 
-V1 - simple presence. Copy is drawn from the positioning corpus in the `claude` repo
-(`snowball-service-offering/`, SBC-INFRA-2) using Andreas's own verbatim language wherever
-possible. V2 is planned as a deliberate rewrite by Andreas.
+Minimal one-page landing. All copy is Andreas-authored (dictated 2026-08-17, cleaned for
+transcription artifacts only); the dictation source with cleanup notes lives in the `claude`
+repo at `snowball-service-offering/website/2026-08-17_dictated-landing-copy-picking-the-right-problem.md`.
+Purpose of the site: digital footprint plus a decent understanding of which type of problem
+Snowball Consult solves. Planned later: blog and resources sections.
 
 ## Design
 
-Follows SBC-INFRA-84 (Snowball Consult design language): light mode on FT paper `#FFF1E5`,
-Inter + JetBrains Mono, Snowball Blue `#0019FF` for structure, Snowball Orange `#FF9000` for CTAs.
+Deliberately minimal and text-first: single column on FT paper `#FFF1E5`, Newsreader serif
+for text, monospace section labels in Snowball Blue `#0019FF`, Snowball Orange `#FF9000`
+as a sparse accent. Brand colors follow SBC-INFRA-84; typography intentionally diverges
+from it (website earns its own type).
 
 ## Deployment
 
