@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Snowball Consult</title>
-<meta name="description" content="Snowball Consult is a boutique consultancy that helps B2B software companies pick the right problems, then collaboratively custom-builds the data systems and processes that solve them.">
+<meta name="description" content="Snowball Consult plans, builds and implements GTM data systems for small-team, high-ACV companies.">
 <link rel="icon" type="image/png" href="assets/sc-mark.png">
 <meta property="og:title" content="Snowball Consult">
-<meta property="og:description" content="GTM data systems, shipped.">
+<meta property="og:description" content="GTM data systems for small-team, high-ACV companies.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #FFF1E5;
@@ -27,136 +27,302 @@
     background: var(--paper);
     color: var(--ink);
     font-family: "Newsreader", Georgia, serif;
-    font-size: 19px;
-    line-height: 1.65;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
   }
-  .page {
-    max-width: 41rem;
-    margin: 0 auto;
-    padding: 5rem 1.5rem 4rem;
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.25rem;
+    gap: 1.6rem;
   }
-  header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+  .logo {
+    width: min(320px, 74vw);
+    height: auto;
+    display: block;
   }
-  header .tagline {
+  .oneliner {
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--ink-soft);
-    margin-top: 0.35rem;
+    max-width: 26rem;
+    line-height: 1.5;
   }
-  header::after {
-    content: "";
-    display: block;
-    width: 3rem;
-    height: 3px;
-    background: var(--orange);
-    margin-top: 1.75rem;
-  }
-  section { margin-top: 3.25rem; }
-  .label {
+  #widget {
+    margin-top: 1.9rem;
     font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--blue);
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--ink);
+    max-width: 92vw;
+    line-height: 1.9;
+    cursor: default;
+    user-select: none;
   }
-  p + p { margin-top: 1.1rem; }
-  a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { color: var(--orange); }
-  .contact p { margin-top: 0.2rem; }
-  .contact p.label { margin-bottom: 1rem; }
+  #glyph { color: var(--blue); display: inline-block; min-width: 1.1em; }
+  #glyph.g-orange { color: var(--orange); }
+  #term { transition: opacity 0.25s ease; }
+  #term.fading { opacity: 0; }
+  #term.rare { color: var(--orange); }
+  #meta { color: var(--ink-soft); opacity: 0.75; white-space: nowrap; display: inline-block; }
+  #widget.interrupted #glyph,
+  #widget.interrupted #term { color: var(--orange); }
+  .caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--ink-soft);
+    opacity: 0.6;
+    vertical-align: text-bottom;
+    margin-left: 0.35em;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
   footer {
-    margin-top: 4.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(36, 31, 26, 0.15);
     font-family: var(--mono);
     font-size: 0.68rem;
     letter-spacing: 0.05em;
     color: var(--ink-soft);
+    text-align: center;
+    padding: 1.5rem 1rem 2rem;
   }
-  @media (max-width: 600px) {
-    body { font-size: 17.5px; }
-    .page { padding-top: 3.5rem; }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--orange); }
+  footer .sep { margin: 0 0.55em; opacity: 0.5; }
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .caret { animation: none; }
+    #term { transition: none; }
+  }
+  @media (max-width: 480px) {
+    #widget { font-size: 0.78rem; }
+    .oneliner { font-size: 1.08rem; }
   }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <header>
-    <h1>Snowball Consult</h1>
-    <p class="tagline">GTM data systems, shipped.</p>
-  </header>
+<p class="sr-only">Snowball Consult. GTM data systems for small-team, high-ACV companies.
+Contact: andreas@snowball-consult.com. More about the practice on the About page.</p>
 
-  <section>
-    <p>Today it looks like every problem has a software solution, and everybody can build
-    any software. What I'm seeing: work doesn't get easier, and it doesn't get faster.
-    Simple things get easier, and we move on to solve better problems. That brings us
-    into new territory. Solving better problems means discovering new challenges.</p>
-    <p>One of the more permanent things I see: the ability to pick the right problem is a
-    superpower in today's fast-paced B2B environment.</p>
-  </section>
+<main>
+  <img class="logo" src="assets/snowball-logo.png" alt="Snowball Consult">
+  <p class="oneliner">GTM data systems for small-team,<br>high&#8209;ACV companies.</p>
+  <div id="widget" aria-hidden="true" title="esc to interrupt">
+    <span id="glyph">&#10035;</span>
+    <span id="term">Booting&hellip;</span>
+    <span id="meta"></span><span class="caret"></span>
+  </div>
+</main>
 
-  <section>
-    <p class="label">What Snowball Consult does</p>
-    <p>Snowball Consult is a boutique consultancy that asks the right questions. It
-    facilitates a shared understanding of the problem, then plans the solution and
-    executes it.</p>
-    <p>I help B2B software companies pick the right problems: identify the data, the
-    processes, and the digital products that move the needle, then collaboratively
-    custom-build those solutions. That removes revenue roadblocks and lifts the whole
-    organization with better data, tailor-made systems, and better processes.</p>
-  </section>
+<footer>
+  <a href="mailto:andreas@snowball-consult.com">andreas@snowball-consult.com</a><span class="sep">&middot;</span><a href="https://linkedin.com/in/andreas-wernicke">LinkedIn</a><span class="sep">&middot;</span><a href="about.html">About</a>
+</footer>
 
-  <section>
-    <p class="label">How the work looks different</p>
-    <p>There is a lot of chasing the latest and greatest, and I'm certainly always
-    excited about the newest game in town this week. Don't get me wrong: if I had silver
-    bullets, you'd see me shoot silver bullets. The most dependable silver bullet I have
-    seen in three years of this work is the groundswell of raising the floor: data that
-    is clean, thoughtfully implemented with the end user in mind. The next level is
-    bespoke, relevant data. On top of that comes weaving that data into better workflows
-    and processes, for efficiency gains, time savings, pipeline generation, whichever
-    tactics you want to layer on for your GTM. At a certain maturity, everything gets
-    better with better data.</p>
-  </section>
+<script>
+(function () {
+  "use strict";
+  // Terms prefixed with * are the rare tier and render in orange.
+  var TERMS = [
+    // Real GTM/RevOps operations
+    "Deduplicating the CRM", "Normalizing state codes", "Backfilling lifecycle stages",
+    "Scoring accounts", "Routing leads", "Merging duplicate companies",
+    "Auditing the UTM taxonomy", "Rebuilding the funnel report", "Enriching 1,204 rows",
+    "Mapping fields", "Cleansing the pipeline", "Reconciling closed-lost reasons",
+    "Standardizing job titles", "Parsing referral chains", "Segmenting the TAM",
+    "Refreshing firmographics", "Validating email syntax", "Warming the domain",
+    "Throttling the sequencer", "Tagging champions", "Re-scoring the ICP",
+    "Drafting the enrichment spec", "Versioning the schema", "Documenting the workflow",
+    "Pruning stale workflows", "Archiving zombie sequences", "Syncing HubSpot properties",
+    "Untangling lifecycle logic", "Rescuing orphaned contacts", "Attributing the pipeline",
+    "Deduplicating the dedupe rules", "Normalizing country names", "Flattening the org chart",
+    "Resolving domain collisions", "Chasing bounced emails", "Suppressing unsubscribes",
+    "Grooming the lead queue", "Calibrating the scoring model", "Weighting intent signals",
+    "Sampling the enrichment output", "Spot-checking 50 rows", "Diffing the property audit",
+    "Renaming fields responsibly", "Retiring legacy fields", "Testing the webhook",
+    "Replaying failed syncs", "Batching the backfill", "Verifying at the data layer",
+    "Reading the API docs", "Re-reading the API docs", "Paginating the export",
+    "Rate-limiting politely", "Caching the lookups", "Hashing the join keys",
+    "Joining on Record ID", "Refusing to join on domain", "Snapshotting before the bulk op",
+    "Rolling back gracefully", "Escaping the CSV commas", "Fixing the timezone bug",
+    "Trimming trailing whitespace", "Upper-casing the ISO codes", "Geocoding headquarters",
+    "Inferring company size", "Flagging PO boxes", "Detecting free-mail domains",
+    "Waterfalling the providers", "Benchmarking match rates", "Negotiating with the API",
+    "Retrying with backoff", "Logging everything", "Monitoring the drain",
+    "Counting the rows twice", "Enrolling one record first", "Simulating before shipping",
+    "Shipping the simple version", "Measuring before optimizing", "Instrumenting the handoffs",
+    "Closing the loop", "Wiring the notifications",
+    // Consulting satire
+    "Synergizing", "Ideating", "Workshopping", "Whiteboarding", "Circling back",
+    "Double-clicking", "Aligning stakeholders", "Boiling the ocean", "Moving the needle",
+    "Leveraging learnings", "Socializing the deck", "Shifting the paradigm",
+    "Unlocking value", "Operationalizing insights", "Evangelizing best practices",
+    "Cascading the OKRs", "Sunsetting the initiative", "Right-sizing expectations",
+    "Future-proofing the roadmap", "De-risking the rollout", "Pressure-testing assumptions",
+    "Stress-testing the narrative", "Gut-checking the numbers", "Level-setting",
+    "Touching base", "Taking this offline", "Parking that for now", "Putting a pin in it",
+    "Reading the room", "Herding the calendar invites", "Finding a time that works",
+    "Following up on the follow-up", "Pinging gently", "Nudging politely",
+    "Bubbling this up", "Looping in legal", "Getting buy-in", "Building consensus",
+    "Managing up", "Drilling down", "Zooming out", "Peeling the onion",
+    "Slicing the data differently", "Adding a swim lane", "Color-coding the risks",
+    "Bolding the takeaways", "Shortening the deck", "Lengthening the appendix",
+    "Renaming the final_v2 file", "Finalizing final_final_v3", "Scheduling the pre-meeting",
+    "Debriefing the debrief", "Templatizing the template", "Frameworking",
+    "Best-practicing", "Thought-leadering", "North-starring", "Flywheeling",
+    "Value-adding", "Quick-winning",
+    // Claude-Code-style absurdities, consulting accent
+    "Percolating pipeline", "Herding attribution models", "Defenestrating spreadsheets",
+    "*Snowballing", "Ruminating on RevOps", "Marinating the segments",
+    "Fermenting the funnel", "Massaging the data", "Whispering to the CRM",
+    "Negotiating with a dropdown", "Untangling the spaghetti sync", "Polishing the pivot table",
+    "Alphabetizing the acronyms", "Decaffeinating the dashboard", "Rehearsing the demo",
+    "Blowing on the dice", "Consulting the consultants", "Auditing the audit",
+    "Meta-analyzing", "Overthinking the naming", "Underthinking the naming",
+    "Recalculating enthusiasm", "Buffering professionally", "Compiling talking points",
+    "Warming up the jargon", "Stretching before the sprint", "Feeding the flywheel",
+    "Watering the evergreen content", "Dusting the knowledge base", "Vacuuming the data lake",
+    "Draining the data swamp", "Petting the unicorn metrics", "Chasing a missing semicolon",
+    "Blaming the cache", "Clearing the cache anyway", "Turning it off and on again",
+    "*Reticulating splines", "Summoning product-market fit", "Manifesting pipeline",
+    "Squinting at the chart",
+    // On-brand riffs
+    "*Raising the floor", "*Picking the right problem", "*Holstering silver bullets",
+    "Asking the right questions", "Asking better questions", "Facilitating shared understanding",
+    "Planning the solution", "Executing the plan", "Learning along the way",
+    "Educating along the way", "Skipping the latest and greatest", "Choosing boring tools",
+    "Building it with you", "Showing the cards", "Keeping the client count small",
+    "Solving better problems", "Discovering new challenges", "Making better data",
+    "Weaving data into workflows", "*Shipping GTM data systems"
+  ];
 
-  <section>
-    <p class="label">Who I work with</p>
-    <p>B2B software companies, generally Series A to C, with sound product-market fit and
-    a clear, proven customer base. The leadership team is excited about the possibilities
-    with AI, and aware that wins that move the needle rarely come easily. Someone manages
-    the CRM, part-time or full-time, maybe with an additional head for admin. Sales teams
-    run between five and ten people.</p>
-  </section>
+  var UNITS = [
+    "tokens", "rows enriched", "dupes merged", "stakeholders aligned",
+    "decks socialized", "leads routed", "fields mapped", "assumptions questioned",
+    "credits saved", "follow-ups sent"
+  ];
+  var GLYPHS = ["✳", "✴", "✽", "✴"];
 
-  <section>
-    <p class="label">Working together</p>
-    <p>Snowball Consult works with an extremely small number of clients, one or two at a
-    time. Picking the right problem means that if it has meaningful impact, chances are
-    it is not trivial.</p>
-    <p>The process is collaborative. I don't hold my cards close to my chest: while we
-    build toward specific data and software goals, learning and educating along the way
-    is a natural part of how I work. You buy the framework for picking the right problem,
-    the planning and execution capability, and a way of working on this type of problem
-    with today's technologies.</p>
-    <p>I have found curiosity, trust, and a growth mindset to be non-negotiable traits in
-    a Snowball Consult project. That selection has served me well over the last three
-    years, and over my career.</p>
-  </section>
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var glyphEl = document.getElementById("glyph");
+  var termEl = document.getElementById("term");
+  var metaEl = document.getElementById("meta");
+  var widget = document.getElementById("widget");
 
-  <section class="contact">
-    <p class="label">Contact</p>
-    <p>Andreas Wernicke, New York</p>
-    <p><a href="mailto:andreas@snowball-consult.com">andreas@snowball-consult.com</a></p>
-    <p><a href="https://linkedin.com/in/andreas-wernicke">LinkedIn</a></p>
-  </section>
+  var deck = [], deckPos = 0, lastTerm = "";
+  function reshuffle() {
+    deck = TERMS.slice();
+    for (var i = deck.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+    }
+    if (deck[0] === lastTerm) { deck.push(deck.shift()); }
+    deckPos = 0;
+  }
+  function nextTerm() {
+    if (deckPos >= deck.length) reshuffle();
+    var t = deck[deckPos++];
+    lastTerm = t;
+    return t;
+  }
 
-  <footer>&copy; 2026 Snowball Consult, LLC</footer>
+  var count = Math.floor(200 + Math.random() * 900);
+  var unit = UNITS[0];
+  var started = Date.now();
+  var interrupted = false;
 
-</div>
+  function fmtCount(n) {
+    if (n >= 10000) return (n / 1000).toFixed(1) + "k";
+    return n.toLocaleString("en-US");
+  }
+  function fmtTime() {
+    var s = Math.floor((Date.now() - started) / 1000);
+    if (s < 60) return s + "s";
+    return Math.floor(s / 60) + "m " + ("0" + (s % 60)).slice(-2) + "s";
+  }
+  function renderMeta() {
+    metaEl.textContent = " (esc to interrupt · " + fmtTime() + " · ↑ " + fmtCount(count) + " " + unit + ")";
+  }
+
+  function showTerm(raw) {
+    var rare = raw.charAt(0) === "*";
+    var text = rare ? raw.slice(1) : raw;
+    termEl.textContent = text + "…";
+    termEl.classList.toggle("rare", rare);
+    unit = UNITS[Math.floor(Math.random() * UNITS.length)];
+    renderMeta();
+  }
+
+  function cycle() {
+    if (interrupted) return;
+    var t = nextTerm();
+    if (reduced) {
+      showTerm(t);
+    } else {
+      termEl.classList.add("fading");
+      setTimeout(function () {
+        termEl.classList.remove("fading");
+        if (interrupted) return;
+        showTerm(t);
+      }, 250);
+    }
+    setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+  }
+
+  function interrupt() {
+    if (interrupted) return;
+    interrupted = true;
+    widget.classList.add("interrupted");
+    glyphEl.textContent = "✗";
+    termEl.classList.remove("rare");
+    termEl.textContent = "Interrupted · picking a better problem…";
+    metaEl.textContent = " (resuming)";
+    setTimeout(function () {
+      widget.classList.remove("interrupted");
+      interrupted = false;
+      showTerm(nextTerm());
+      setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+    }, 2200);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") interrupt();
+  });
+  widget.addEventListener("click", interrupt);
+
+  reshuffle();
+  showTerm(nextTerm());
+  setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+
+  if (!reduced) {
+    var gi = 0;
+    setInterval(function () {
+      if (interrupted) return;
+      gi = (gi + 1) % GLYPHS.length;
+      glyphEl.textContent = GLYPHS[gi];
+      glyphEl.classList.toggle("g-orange", Math.random() < 0.04);
+    }, 160);
+    setInterval(function () {
+      if (interrupted) return;
+      if (Math.random() < 0.7) {
+        count += Math.floor(Math.random() * 97);
+        renderMeta();
+      }
+    }, 600);
+    setInterval(function () { if (!interrupted) renderMeta(); }, 1000);
+  }
+})();
+</script>
+
 </body>
 </html>

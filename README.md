@@ -4,9 +4,11 @@ Source for www.snowball-consult.com. Static single-page site, no build step: edi
 
 ## Status
 
-Minimal one-page landing. All copy is Andreas-authored (dictated 2026-08-17, cleaned for
-transcription artifacts only); the dictation source with cleanup notes lives in the `claude`
-repo at `snowball-service-offering/website/2026-08-17_dictated-landing-copy-picking-the-right-problem.md`.
+Front page (`index.html`) is a minimal widget: logo, one-liner, and a Claude Code-style
+status spinner cycling through 200 consulting/GTM-ops terms (Esc or click "interrupts" it).
+The full Andreas-dictated landing copy lives on at `about.html`, linked from the footer;
+the dictation source with cleanup notes lives in the `claude` repo at
+`snowball-service-offering/website/2026-08-17_dictated-landing-copy-picking-the-right-problem.md`.
 Purpose of the site: digital footprint plus a decent understanding of which type of problem
 Snowball Consult solves. Planned later: blog and resources sections.
 
