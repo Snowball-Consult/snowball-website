@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snowball Consult</title>
+  <meta name="description" content="Snowball Consult builds GTM data infrastructure: enrichment pipelines, employment verification, ICP as executable logic, and CRM architecture that makes every downstream revenue initiative work.">
+  <link rel="icon" type="image/png" href="./assets/sc-mark.png">
+  <meta property="og:title" content="Snowball Consult">
+  <meta property="og:description" content="GTM data infrastructure. Systems over workflows.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand */
+      --brand-blue: #0019FF;
+      --brand-blue-light: rgba(0, 25, 255, 0.06);
+      --brand-orange: #FF9000;
+      --brand-orange-light: rgba(255, 144, 0, 0.08);
+
+      /* Surfaces */
+      --bg: #FFF1E5;
+      --surface: #ffffff;
+      --surface-raised: #f6f5f1;
+
+      /* Borders */
+      --border: #e5e2dc;
+      --border-emphasis: #d4d0c8;
+
+      /* Text */
+      --text-primary: #1c1b17;
+      --text-secondary: #6b6862;
+      --text-tertiary: #a09b92;
+
+      /* Typography */
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .wordmark {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .wordmark img { height: 24px; width: 24px; border-radius: 5px; }
+    .nav-links { display: flex; gap: var(--space-lg); }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--brand-blue); }
+
+    /* Hero */
+    .hero { padding: var(--space-3xl) 0; }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      margin-bottom: var(--space-lg);
+    }
+    h1 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+    }
+    .hero p.lede {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: var(--space-xl);
+    }
+    .cta-row { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--brand-orange);
+      color: #ffffff;
+    }
+    .btn-primary:hover { background: #e88300; }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-emphasis);
+    }
+    .btn-secondary:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+
+    /* Sections */
+    section { padding: var(--space-2xl) 0; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-md);
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-lg);
+    }
+    .prose p { max-width: 680px; margin-bottom: var(--space-md); color: var(--text-primary); }
+    .prose p + p { margin-top: var(--space-sm); }
+
+    blockquote {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+      max-width: 640px;
+      margin: var(--space-xl) 0;
+      padding-left: var(--space-lg);
+      border-left: 3px solid var(--brand-orange);
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: var(--space-lg);
+      box-shadow: 0 1px 3px rgba(28, 27, 23, 0.06);
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+    .card p { color: var(--text-secondary); font-size: 14px; line-height: 1.55; }
+
+    /* How I work list */
+    .work-list { list-style: none; max-width: 680px; }
+    .work-list li {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: var(--space-md);
+    }
+    .work-list li:last-child { border-bottom: none; }
+    .work-list .marker {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brand-blue);
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+    .work-list strong { font-weight: 600; }
+    .work-list span.body { color: var(--text-secondary); }
+
+    /* Contact */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: var(--space-xl);
+      box-shadow: 0 1px 3px rgba(28, 27, 23, 0.06);
+    }
+    .contact-card p { color: var(--text-secondary); margin-bottom: var(--space-lg); max-width: 560px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: var(--space-xl) 0;
+      margin-top: var(--space-2xl);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .footer-inner a { color: var(--text-secondary); text-decoration: none; }
+    .footer-inner a:hover { color: var(--brand-blue); }
+
+    a { color: var(--brand-blue); }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 34px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      blockquote { font-size: 20px; }
+      .hero { padding: var(--space-2xl) 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a class="wordmark" href="#"><img src="./assets/sc-mark.png" alt="Snowball Consult mark">Snowball Consult</a>
+      <nav class="nav-links">
+        <a href="#what-i-build">What I build</a>
+        <a href="#how-i-work">How I work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="hero">
+      <div class="eyebrow">GTM Data Infrastructure &middot; New York</div>
+      <h1>Systems over workflows.</h1>
+      <p class="lede">I build and operationalize your data and systems so your team can execute. We work together on strategy and creativity. I solve the GTM complexity.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:andreas@snowball-consult.com">Email Andreas</a>
+        <a class="btn btn-secondary" href="https://linkedin.com/in/andreas-wernicke">LinkedIn</a>
+      </div>
+    </div>
+
+    <section id="pov">
+      <div class="section-label">Point of view</div>
+      <h2>AI on the right side of the equation</h2>
+      <div class="prose">
+        <p>Most companies invest AI on the wrong side of the equation: targeting loosely, then using AI to fake personalization at scale. I invest AI on the right side - precision targeting, data accuracy, ICP matching - so your team does genuine human work with a manageable set of genuinely relevant leads.</p>
+        <p>Powerful models are available to everyone. What constrains AI in GTM is the context underneath it: who your customers are, what a good-fit account looks like, the judgment your best salesperson applies without thinking. I codify that context into your CRM, your enrichment architecture, and your qualification logic. Tools change fast. Codified judgment compounds.</p>
+      </div>
+      <blockquote>&ldquo;The scarcest resource in GTM isn&rsquo;t data. It&rsquo;s taste.&rdquo;</blockquote>
+    </section>
+
+    <section id="what-i-build">
+      <div class="section-label">What I build</div>
+      <h2>Foundations that make revenue work land</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Data enrichment pipelines</h3>
+          <p>Multi-agent waterfall architectures that chain AI agents and data providers in documented sequences. Every value written back to the CRM carries its source, reasoning trace, and confidence level.</p>
+        </div>
+        <div class="card">
+          <h3>Employment verification &amp; champion tracking</h3>
+          <p>Automated detection of who has left, where they went, and whether the new company fits your ICP. Departed champions become warm paths at new accounts, with predecessor and successor links in the CRM.</p>
+        </div>
+        <div class="card">
+          <h3>ICP &amp; persona as executable logic</h3>
+          <p>Hard gates, tiered qualifying criteria, and confidence levels, validated against actual customer data. Definitions structured for both human decision-making and automated scoring.</p>
+        </div>
+        <div class="card">
+          <h3>CRM property architecture</h3>
+          <p>Staging, detection, and action layers with full source attribution. Enrichment never overwrites canonical data, and anyone can read the spec and understand every field.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-i-work">
+      <div class="section-label">How I work</div>
+      <h2>Direct, transparent, handover-ready</h2>
+      <ul class="work-list">
+        <li><span class="marker">01</span><span><strong>Two clients at a time.</strong> <span class="body">Each engagement gets my direct attention: no junior consultants, no handoffs.</span></span></li>
+        <li><span class="marker">02</span><span><strong>Working infrastructure as the output.</strong> <span class="body">The deliverable is systems running in your CRM and Clay workspace, documented and transparent.</span></span></li>
+        <li><span class="marker">03</span><span><strong>You own everything.</strong> <span class="body">I work in your instances, and the goal is that your team can operate, modify, and extend the systems without me.</span></span></li>
+        <li><span class="marker">04</span><span><strong>Handover-ready at any point.</strong> <span class="body">You get an AI-ready file containing everything: what was built, how it was developed, and every piece of context that went into it.</span></span></li>
+        <li><span class="marker">05</span><span><strong>Monthly up-front.</strong> <span class="body">So I can focus fully on the work. References from past client executives available.</span></span></li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <div class="section-label">About</div>
+      <h2>Andreas Wernicke</h2>
+      <div class="prose">
+        <p>I'm a GTM data and RevOps consultant in New York. Snowball Consult is a deliberately small practice: I work hands-on, in your systems, with your team. I'm Clay-native and Claude Code-native because they are the best tools on the market right now, and I co-host Clay Club New York.</p>
+        <p>This work fits thoughtful CEOs and CROs who evaluate properly, at companies with product-market fit, with at least one stakeholder who cares how the systems work. Part of every engagement is growing your team's AI fluency: I build in your instances and explain everything as I go.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-label">Contact</div>
+      <div class="contact-card">
+        <h2>Start a conversation</h2>
+        <p>The best first step is a short note about what's happening in your CRM and where revenue work keeps stalling. I'll tell you honestly whether this is a fit, including when the right answer is buying a tool instead of hiring me.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:andreas@snowball-consult.com">andreas@snowball-consult.com</a>
+          <a class="btn btn-secondary" href="https://linkedin.com/in/andreas-wernicke">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; 2026 Snowball Consult, LLC &middot; New York</span>
+      <a href="mailto:andreas@snowball-consult.com">andreas@snowball-consult.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
