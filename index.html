@@ -206,11 +206,6 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
     "Weaving data into workflows", "*Shipping GTM data systems"
   ];
 
-  var UNITS = [
-    "tokens", "rows enriched", "dupes merged", "stakeholders aligned",
-    "decks socialized", "leads routed", "fields mapped", "assumptions questioned",
-    "credits saved", "follow-ups sent"
-  ];
   var GLYPHS = ["✳", "✴", "✽", "✴"];
 
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -236,22 +231,17 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
     return t;
   }
 
-  var count = Math.floor(200 + Math.random() * 900);
-  var unit = UNITS[0];
-  var started = Date.now();
   var interrupted = false;
 
-  function fmtCount(n) {
-    if (n >= 10000) return (n / 1000).toFixed(1) + "k";
-    return n.toLocaleString("en-US");
-  }
-  function fmtTime() {
-    var s = Math.floor((Date.now() - started) / 1000);
-    if (s < 60) return s + "s";
-    return Math.floor(s / 60) + "m " + ("0" + (s % 60)).slice(-2) + "s";
-  }
+  // Elapsed since Jan 01 2023, shown as "3y 7m".
+  var start = new Date(2023, 0, 1);
+  var now = new Date();
+  var months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  if (now.getDate() < start.getDate()) months--;
+  var tenure = Math.floor(months / 12) + "y " + (months % 12) + "m";
+
   function renderMeta() {
-    metaEl.textContent = " (esc to interrupt · " + fmtTime() + " · ↑ " + fmtCount(count) + " " + unit + ")";
+    metaEl.textContent = " (esc to interrupt · " + tenure + ")";
   }
 
   function showTerm(raw) {
@@ -259,7 +249,6 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
     var text = rare ? raw.slice(1) : raw;
     termEl.textContent = text + "…";
     termEl.classList.toggle("rare", rare);
-    unit = UNITS[Math.floor(Math.random() * UNITS.length)];
     renderMeta();
   }
 
@@ -312,14 +301,6 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
       glyphEl.textContent = GLYPHS[gi];
       glyphEl.classList.toggle("g-orange", Math.random() < 0.04);
     }, 160);
-    setInterval(function () {
-      if (interrupted) return;
-      if (Math.random() < 0.7) {
-        count += Math.floor(Math.random() * 97);
-        renderMeta();
-      }
-    }, 600);
-    setInterval(function () { if (!interrupted) renderMeta(); }, 1000);
   }
 })();
 </script>
