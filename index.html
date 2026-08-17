@@ -64,7 +64,7 @@
     cursor: default;
     user-select: none;
   }
-  #glyph { color: var(--blue); display: inline-block; min-width: 1.1em; }
+  #glyph { color: var(--blue); display: inline-block; width: 1.1em; text-align: center; }
   #glyph.g-orange { color: var(--orange); }
   #term { transition: opacity 0.25s ease; }
   #term.fading { opacity: 0; }
@@ -270,6 +270,13 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
     renderMeta();
   }
 
+  // Single managed timer: interrupts and cycles never stack chains.
+  var cycleTimer = null;
+  function scheduleCycle() {
+    clearTimeout(cycleTimer);
+    cycleTimer = setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+  }
+
   function cycle() {
     if (interrupted) return;
     var t = nextTerm();
@@ -283,33 +290,46 @@ Contact: email@snowball-consult.com. More about the practice on the About page.<
         showTerm(t);
       }, 250);
     }
-    setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+    scheduleCycle();
   }
 
   function interrupt() {
     if (interrupted) return;
     interrupted = true;
+    clearTimeout(cycleTimer);
     widget.classList.add("interrupted");
     glyphEl.textContent = "✗";
     termEl.classList.remove("rare");
+    termEl.classList.remove("fading");
     termEl.textContent = "Interrupted · picking a better problem…";
     metaEl.textContent = " (resuming)";
     setTimeout(function () {
       widget.classList.remove("interrupted");
+      glyphEl.textContent = "✳";
       interrupted = false;
       showTerm(nextTerm());
-      setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+      scheduleCycle();
     }, 2200);
   }
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") interrupt();
   });
-  widget.addEventListener("click", interrupt);
+  // A click that merely clears a text selection elsewhere on the page
+  // should not fire the interrupt.
+  var hadSelection = false;
+  document.addEventListener("mousedown", function () {
+    var s = window.getSelection();
+    hadSelection = !!s && !s.isCollapsed;
+  });
+  widget.addEventListener("click", function () {
+    if (hadSelection) return;
+    interrupt();
+  });
 
   reshuffle();
   showTerm(nextTerm());
-  setTimeout(cycle, reduced ? 6000 : 2500 + Math.random() * 1500);
+  scheduleCycle();
 
   if (!reduced) {
     var gi = 0;
