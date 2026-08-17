@@ -19,4 +19,7 @@ from it (website earns its own type).
 
 ## Deployment
 
-Deployed via GitHub Pages from the `main` branch root. Pushing to `main` publishes.
+Deployed via GitHub Pages from the `main` branch root. Pushing to `main` publishes to
+https://snowball-consult.com (custom apex domain since 2026-08-17; www and http redirect there;
+the `CNAME` file makes the custom domain work - never delete it). DNS lives at Strato; the full
+runbook incl. the mail-safety rules is SBC-INFRA-128 in the `claude` repo.
