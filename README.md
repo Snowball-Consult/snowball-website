@@ -4,20 +4,22 @@ Source for www.snowball-consult.com. Static single-page site, no build step: edi
 
 ## Status
 
-Front page (`index.html`) is a minimal widget: logo, one-liner, and a Claude Code-style
-status spinner cycling through 200 consulting/GTM-ops terms (Esc or click "interrupts" it).
-The full Andreas-dictated landing copy lives on at `about.html`, linked from the footer;
-the dictation source with cleanup notes lives in the `claude` repo at
+Front page (`index.html`) is a minimal widget: logo, tagline, and a Claude Code-style
+status spinner cycling through 200 consulting/GTM-ops terms (Esc or click "interrupts" it),
+plus a LinkedIn badge and an email-only footer (email@snowball-consult.com).
+The About page (Andreas-dictated landing copy) is removed for the moment; the copy is
+preserved in git history and in the `claude` repo at
 `snowball-service-offering/website/2026-08-17_dictated-landing-copy-picking-the-right-problem.md`.
 Purpose of the site: digital footprint plus a decent understanding of which type of problem
 Snowball Consult solves. Planned later: blog and resources sections.
 
 ## Design
 
-Deliberately minimal and text-first: single column on FT paper `#FFF1E5`, Newsreader serif
-for text, monospace section labels in Snowball Blue `#0019FF`, Snowball Orange `#FF9000`
-as a sparse accent. Brand colors follow SBC-INFRA-84; typography intentionally diverges
-from it (website earns its own type).
+Deliberately minimal: centered column on FT paper `#FFF1E5`, Jost (Futura-like geometric
+sans) for the tagline, monospace for the spinner line, Snowball Blue `#0019FF` for glyph
+and links, Snowball Orange `#FF9000` as a sparse accent (rare terms, interrupt state).
+Brand colors follow SBC-INFRA-84; typography intentionally diverges from it (website earns
+its own type).
 
 ## Deployment
 
