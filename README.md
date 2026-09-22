@@ -4,7 +4,7 @@ Source for www.snowball-consult.com. Static single-page site, no build step: edi
 
 ## Status
 
-Front page (`index.html`) is a minimal widget: logo, the LinkedIn-banner tagline ("Decide What Matters → Build → Enable" / "GTM Systems for Businesses where Each. Account. Matters.", since 2026-09-20), and a Claude Code-style
+Front page (`index.html`) is a minimal widget: logo, the LinkedIn-banner tagline ("Decide What Matters → Build → Enable" / "GTM Systems for Businesses where Every. Lead. Counts.", since 2026-09-20; second line "Every. Lead. Counts." since 2026-09-22), and a Claude Code-style
 status spinner cycling through 200 consulting/GTM-ops terms (Esc or click "interrupts" it),
 plus a LinkedIn badge and an email-only footer (email@snowball-consult.com).
 The About page (Andreas-dictated landing copy) is removed for the moment; the copy is
